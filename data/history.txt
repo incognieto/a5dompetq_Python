@@ -1,0 +1,2 @@
+pemasukan|200000.00|Uang Kaget|12-12-2003
+pengeluaran|150000.00|Hiburan|25-12-2005
