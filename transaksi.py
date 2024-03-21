@@ -24,14 +24,20 @@ def Outcome(saldo, jum, kategori, tgl):
         print(f"Sisa saldo: Rp{saldo.inAll}")
 
 #operasi catat ke file
-def catat_pemasukan(saldo):
-    with open("catatan_pemasukan.txt", "a") as pemasukan_file:
-        pemasukan_file.write(f"pemasukan|{saldo.inAll:.2f}|{saldo.tanggal}\n")
+def catat_pemasukan(saldo, jenis):
+    with open("pemasukan_transaksi.txt", "a") as pemasukan_file:
+        pemasukan_file.write(f"pemasukan|{saldo.inAll:.2f}|{jenis}|{saldo.tanggal}\n")
 
 def catat_pengeluaran(saldo, jumlah, kategori):
-    with open("catatan_pengeluaran.txt", "a") as pengeluaran_file:
+    with open("pengeluaran_transaksi.txt", "a") as pengeluaran_file:
         pengeluaran_file.write(f"pengeluaran|{jumlah:.2f}|{kategori}|{saldo.tanggal}\n")
 
+def catat_transaksi(saldo, jenis, jumlah, kategori=None):
+    with open("history.txt", "a") as transaksi_file:
+        if jenis == 'pemasukan':
+            transaksi_file.write(f"{jenis}|{jumlah:.2f}|{kategori}|{saldo.tanggal}\n")
+        elif jenis == 'pengeluaran':
+            transaksi_file.write(f"{jenis}|{jumlah:.2f}|{kategori}|{saldo.tanggal}\n")
 
 #menu ketika ingin transaksi
 def menuTransaksi():
@@ -58,17 +64,24 @@ def menuTransaksi():
                 jml = int(input(f"\nMasukkan jumlah uang: Rp"))
                 if pilJenis == 1:
                     saldo.gaji += jml
+                    kategori = "Gaji"
                 elif pilJenis == 2:
                     saldo.bonus += jml
+                    kategori = "Bonus"
                 elif pilJenis == 3:
                     saldo.sampingan += jml
+                    kategori = "Sampingan"
                 elif pilJenis == 4:
                     saldo.pinjaman += jml
+                    kategori = "Pinjaman"
                 elif pilJenis == 5:
                     saldo.uangKaget += jml
+                    kategori = "Uang Kaget"
+                
                 saldo.inAll += jml
                 print(f"Pemasukan berhasil dicatat: Rp{jml}")
-                catat_pemasukan(saldo)
+                catat_pemasukan(saldo, kategori)
+                catat_transaksi(saldo, 'pemasukan', jml, kategori)
             else:
                 print("Pilihan tidak valid!")
         
@@ -98,6 +111,7 @@ def menuTransaksi():
                 }[pilJenis]
                 Outcome(saldo, jml, kategori, saldo.tanggal)
                 catat_pengeluaran(saldo, jml, kategori)
+                catat_transaksi(saldo, 'pengeluaran', jml, kategori)
             else:
                 print("Pilihan tidak valid!")
         
