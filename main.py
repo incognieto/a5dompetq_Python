@@ -1,4 +1,4 @@
-import curses
+from lib import curses
 from src import login
 
 def main(stdscr):

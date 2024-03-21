@@ -1,5 +1,5 @@
 import os
-import curses
+from lib import curses
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():
