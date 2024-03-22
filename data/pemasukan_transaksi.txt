@@ -1,1 +1,2 @@
 pemasukan|200000.00|Uang Kaget|12-12-2003
+pemasukan|100.00|Gaji|12-10-1999

@@ -1,2 +1,4 @@
 pemasukan|200000.00|Uang Kaget|12-12-2003
 pengeluaran|150000.00|Hiburan|25-12-2005
+pemasukan|100.00|Gaji|12-10-1999
+pengeluaran|100.00|Hiburan|20-10-2019

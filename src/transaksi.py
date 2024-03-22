@@ -25,15 +25,15 @@ def Outcome(saldo, jum, kategori, tgl):
 
 #operasi catat ke file
 def catat_pemasukan(saldo, jenis):
-    with open("pemasukan_transaksi.txt", "a") as pemasukan_file:
+    with open("data/pemasukan_transaksi.txt", "a") as pemasukan_file:
         pemasukan_file.write(f"pemasukan|{saldo.inAll:.2f}|{jenis}|{saldo.tanggal}\n")
 
 def catat_pengeluaran(saldo, jumlah, kategori):
-    with open("pengeluaran_transaksi.txt", "a") as pengeluaran_file:
+    with open("data/pengeluaran_transaksi.txt", "a") as pengeluaran_file:
         pengeluaran_file.write(f"pengeluaran|{jumlah:.2f}|{kategori}|{saldo.tanggal}\n")
 
 def catat_transaksi(saldo, jenis, jumlah, kategori=None):
-    with open("history.txt", "a") as transaksi_file:
+    with open("data/history.txt", "a") as transaksi_file:
         if jenis == 'pemasukan':
             transaksi_file.write(f"{jenis}|{jumlah:.2f}|{kategori}|{saldo.tanggal}\n")
         elif jenis == 'pengeluaran':

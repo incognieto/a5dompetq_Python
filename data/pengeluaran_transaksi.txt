@@ -1,1 +1,2 @@
 pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|100.00|Hiburan|20-10-2019
