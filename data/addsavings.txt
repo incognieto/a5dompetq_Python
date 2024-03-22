@@ -1,7 +1,3 @@
-incomeSaving|8000.00
-incomeSaving|7000.00
-incomeSaving|80000.00
-incomeSaving|8000.00
-incomeSaving|100000.00
-incomeSaving|80000.00
-incomeSaving|80000.00
+incomeSaving|450900.00
+incomeSaving|15001.00
+incomeSaving|89.00
