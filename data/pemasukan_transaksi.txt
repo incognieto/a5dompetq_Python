@@ -1,1 +1,7 @@
 pemasukan|200000.00|Uang Kaget|12-12-2003
+pemasukan|100000.00|Uang Kaget|13-12-2003
+pemasukan|200000.00|Uang Kaget|14-12-2003
+pemasukan|200000.00|Uang Kaget|15-12-2003
+pemasukan|200000.00|Uang Kaget|16-12-2003
+pemasukan|200000.00|Uang Kaget|17-12-2003
+pemasukan|200000.00|Uang Kaget|18-12-2003
