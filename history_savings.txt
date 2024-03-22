@@ -1,0 +1,2 @@
+outcomeSaving|67000.00
+incomeSaving|50000.00
