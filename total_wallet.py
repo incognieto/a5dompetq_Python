@@ -13,10 +13,12 @@ def savings_overall():
                 
     return income_all, outcome_all
 
-def tampilan_savings():
+def cetak_savings():
     income_all, outcome_all = savings_overall()
-    print(f"Saving In : {income_all}")
-    print(f"Saving Out : {outcome_all}")
+    savings_all = income_all - outcome_all
+    
+    with open('data/savings.txt', 'w') as file:
+        file.write(f"{savings_all}")
 
 def tambah_transaksi(kategori, jumlah, sub_kategori, tanggal):
     if kategori == "pemasukan":
@@ -48,15 +50,17 @@ def hitung_total():
                 
     return total_pemasukan, total_pengeluaran
 
-def tampilkan_total():
+def cetak_wallet():
     total_pemasukan, total_pengeluaran = hitung_total()
-    print(f"Total Pemasukan: {total_pemasukan}")
-    print(f"Total Pengeluaran: {total_pengeluaran}")
+    wallet_total = total_pemasukan - total_pengeluaran
+    
+    with open('data/wallet.txt', 'w') as file:
+        file.write(f"{wallet_total}")
 
-tambah_transaksi('pemasukan', 5000000, 'gaji', '01-12-2006')
-tambah_transaksi('pengeluaran', 500000, 'makan', '23-12-2006')
+tambah_transaksi('pemasukan', 5000000, 'Gaji', '01-12-2006')
+tambah_transaksi('pengeluaran', 500000, 'Makan', '23-12-2006')
 tambah_transaksi('pemasukan', 250000, 'Bonus', '15-12-2006')
 tambah_transaksi('pengeluaran', 125000, 'Transportasi', '12-12-2006')
 
-tampilkan_total()
-tampilan_savings()
+cetak_wallet()
+cetak_savings()
