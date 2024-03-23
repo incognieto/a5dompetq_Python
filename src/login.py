@@ -1,5 +1,5 @@
 import os
-import menu
+from src import menu
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():

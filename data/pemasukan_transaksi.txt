@@ -17,3 +17,4 @@ pemasukan|170000.00|Uang Kaget|15-12-2003
 pemasukan|50000.00|Gaji|50000
 pemasukan|50000.00|Gaji|12-12-2009
 pemasukan|40000.00|Uang Kaget|23-09-2017
+pemasukan|70000.00|Pinjaman|25-08-2017

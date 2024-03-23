@@ -9,8 +9,8 @@
     23/03/2024 : 09.45 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 09.55 WIB ["nito : hapus program write karena mengubah data wallet"]
 '''
-import menu
-import z_total #ambil z_total.py
+from src import menu
+from src import z_total #ambil z_total.py
 import os
 from datetime import datetime
 

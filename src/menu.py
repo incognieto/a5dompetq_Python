@@ -1,5 +1,5 @@
 import os
-import inoutcome, history, recap, savings, export, z_total
+from src import inoutcome, history, recap, savings, export, z_total
 
 from datetime import datetime
 

@@ -10,9 +10,9 @@
     23/03/2024 : 11.48 WIB ["ratna : edit printMenuIncomeOutcome() dan update ke branch"]
 '''
 
-import menu #ambil menu.py
+from src import menu #ambil menu.py
 
-import z_total #ambil z_total.py
+from src import z_total #ambil z_total.py
 import os
 from datetime import datetime
 
