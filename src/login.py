@@ -1,39 +1,90 @@
 import os
-import curses
+from menu import printMenu_b
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():
     with open("data/nowLogin.txt", "w"):
         pass
 
-# Fungsi untuk menambahkan username ke dalam file nowLogin.txt
+# Fungsi untuk menambahkan
+#  username ke dalam file nowLogin.txt
 def addToNowLogin(username):
     with open("data/nowLogin.txt", "a") as file:
         file.write(username + "\n")
 
-def printHeader_a(stdscr):
-    stdscr.clear()
-    stdscr.addstr(0, 0, "+----------------------------------------------------------+")
-    stdscr.addstr(1, 0, "|							   |")
-    stdscr.addstr(2, 0, "|							   |")
-    stdscr.addstr(3, 0, "|							   |")
-    stdscr.addstr(4, 0, "|	     _                            _   _____ 	   |")
-    stdscr.addstr(5, 0, "|	    | |                          | | |  _  |	   |")
-    stdscr.addstr(6, 0, "|	  __| | ___  _ __ ___  _ __   ___| |_| | | |	   |")
-    stdscr.addstr(7, 0, "|	 / _` |/ _ \| '_ ` _ \| '_ \ / _ \ __| | | |	   |")
-    stdscr.addstr(8, 0, "|	| (_| | (_) | | | | | | |_) |  __/ |_\\ \/ /	   |")
-    stdscr.addstr(9, 0, "|	 \__,_|\___/|_| |_| |_| .__/ \___|\__|\_/\\_\	   |")
-    stdscr.addstr(10, 0, "|	                      | |                   	   |")
-    stdscr.addstr(11, 0, "|	                      |_|                   	   |")
-    stdscr.addstr(12, 0, "|							   |")
-    stdscr.refresh()
+def printHeader_a():
+    os.system("cls")
+    print("+-----------------------------------------------------------------------------------+")
+    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
+    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
+    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
+    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
+    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
+    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
+    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
+    print("|                                                                                   |")
+    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
+    print("|                                                                                   |")
+    print("|                                    [1] Login                                      |")
+    print("|                                    [2] Register                                   |")
+    print("|                                    [0] Exit                                       |")
+    print("|                                                                                   |")
+    print("+-----------------------------------------------------------------------------------+")
 
-def printMenu_a(stdscr, selectedIndex):
-    stdscr.addstr(13, 0, "|	[%s] Login\t [%s] Register\t     [%s] Exit\t   |" % ("X" if selectedIndex == 1 else " ", "X" if selectedIndex == 2 else " ", "X" if selectedIndex == 3 else " "))
-    stdscr.addstr(14, 0, "|							   |")
-    stdscr.addstr(15, 0, "|							   |")
-    stdscr.addstr(16, 0, "+----------------------------------------------------------+")
-    stdscr.refresh()
+def loginUser():
+    print("\n[Login] Username: ", end="")
+    username = input().strip()
+    print("[Login] Password: ", end="")
+    password = input().strip()
+    if not isUserExist(username):
+        print("User tidak ditemukan, segera lakukan registrasi.")
+        input()
+        return None, None  # Mengembalikan None jika login gagal
+    with open("data/users.txt", "r") as file:
+        for line in file:
+            temp_username, temp_password = line.split()
+            if username == temp_username and password == temp_password:
+                print("\n(!) Login successfull. Press ENTER to Mainmenu")
+                input()
+                writeNowLogin(username)
+                # Baca saldo dari file wallet.txt
+                with open("data/wallet.txt", "r") as wallet_file:
+                    balance = wallet_file.readline().strip()
+                return username, balance  # Mengembalikan username dan balance jika login berhasil
+    print("Username atau password salah.")
+    input()
+    os.remove("data/nowLogin.txt")
+    return None, None  # Mengembalikan None jika login gagal
+
+def tampilLogin():
+    while True:
+        printHeader_a()
+        key = input("[dompetQ] Input your option: ").strip()
+
+        if key == "1":
+            username, balance = loginUser()
+            if username is not None:
+                printMenu_b(username, balance)  # Memanggil menu utama jika login berhasil
+        elif key == "2":
+            registerUser()
+        elif key == "0":
+            print("Goodbye ...")
+            break
+
+
+def registerUser():
+    print("\n[Register] Username: ", end="")
+    username = input().strip()
+    if isUserExist(username):
+        print("Registrasi Gagal. Username telah digunakan.")
+        input()
+        return
+    print("[Register] Password: ", end="")
+    password = input().strip()
+    with open("data/users.txt", "a") as file:
+        file.write(username + " " + password + "\n")
+    print("Registrasi berhasil.")
+    input()
 
 # Fungsi untuk memeriksa apakah pengguna sudah terdaftar saat login
 def isUserExist(username):
@@ -58,95 +109,13 @@ def readNowLogin():
     except FileNotFoundError:
         return ""
 
-# Fungsi untuk melakukan login pengguna
-def loginUser(stdscr):
-    curses.echo()
-    stdscr.addstr(17, 0, "Login | Username: ")
-    stdscr.refresh()
-    username = stdscr.getstr(18, 0).decode(encoding="utf-8")
-    stdscr.addstr(19, 0, "Login | Password: ")
-    stdscr.refresh()
-    password = stdscr.getstr(20, 0).decode(encoding="utf-8")
-    if not isUserExist(username):
-        stdscr.addstr(21, 0, "User tidak ditemukan, segera lakukan registrasi.")
-        stdscr.refresh()
-        stdscr.getch()
-        return
-    with open("data/users.txt", "r") as file:
-        for line in file:
-            temp_username, temp_password = line.split()
-            if username == temp_username and password == temp_password:
-                stdscr.addstr(21, 0, "Login berhasil.")
-                stdscr.refresh()
-                stdscr.getch()
-                writeNowLogin(username)  # Menulis username ke nowLogin.txt
-                tampilHome(username)
-                return
-    stdscr.addstr(21, 0, "Username atau password salah.")
-    stdscr.refresh()
-    stdscr.getch()
-    os.remove("data/nowLogin.txt")
-
 # Fungsi untuk logout, membersihkan nowLogin.txt
 def logoutUser():
     clearNowLogin()
     print("Logout berhasil.")
 
-def tampilHome(username):
-    pass  # Fungsi ini dapat diimplementasikan sesuai kebutuhan
-
-# Fungsi untuk menampilkan login
-def tampilLogin(stdscr):
-    selectedIndex = 1  # Pilihan menu awal
-    while True:
-        printHeader_a(stdscr)
-        printMenu_a(stdscr, selectedIndex)
-        key = stdscr.getch()
-
-        if key == curses.KEY_UP:
-            selectedIndex = (selectedIndex - 2 + 3) % 3 + 1
-        elif key == curses.KEY_DOWN:
-            selectedIndex = (selectedIndex % 3) + 1
-        elif key == curses.KEY_LEFT:
-            selectedIndex = (selectedIndex - 2 + 3) % 3 + 1
-        elif key == curses.KEY_RIGHT:
-            selectedIndex = (selectedIndex % 3) + 1
-        elif key == curses.KEY_ENTER or key in [10, 13]:
-            if selectedIndex == 1:
-                loginUser(stdscr)
-            elif selectedIndex == 2:
-                registerUser(stdscr)  # Meneruskan stdscr ke registerUser()
-            elif selectedIndex == 3:
-                logoutUser()  # Logout sebelum keluar program
-                stdscr.addstr(22, 0, "Good bye ...")
-                stdscr.refresh()
-                stdscr.getch()
-                break
-
-# Fungsi untuk melakukan registrasi pengguna
-def registerUser(stdscr):  # Menambahkan stdscr sebagai parameter
-    curses.echo()
-    stdscr.addstr(17, 0, "Register | Username: ")
-    stdscr.refresh()
-    username = stdscr.getstr(18, 0).decode(encoding="utf-8")
-    if isUserExist(username):
-        stdscr.addstr(19, 0, "Registrasi Gagal. Username telah digunakan.")
-        stdscr.refresh()
-        stdscr.getch()
-        return
-    stdscr.addstr(19, 0, "Register | Password: ")
-    stdscr.refresh()
-    password = stdscr.getstr(20, 0).decode(encoding="utf-8")
-    with open("data/users.txt", "a") as file:
-        file.write(username + " " + password + "\n")
-    stdscr.addstr(21, 0, "Registrasi berhasil.")
-    stdscr.refresh()
-    stdscr.getch()
-
-# Fungsi utama untuk menjalankan aplikasi login
-def main(stdscr):
-    curses.curs_set(0)  # Sembunyikan kursor
-    tampilLogin(stdscr)  # Berikan stdscr ke tampilLogin()
+def main():
+    tampilLogin()
 
 if __name__ == "__main__":
-    curses.wrapper(main)
+    main()

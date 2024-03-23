@@ -1,2 +1,9 @@
 pengeluaran|150000.00|Hiburan|25-12-2005
+<<<<<<< HEAD
 pengeluaran|100.00|Hiburan|20-10-2019
+=======
+pengeluaran|6000.00|Hiburan|12-12-2003
+pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|7000.00|Hiburan|12-12-2003
+>>>>>>> d788c28674ff308bdaaf773f8a6ef6f763ccc0be
