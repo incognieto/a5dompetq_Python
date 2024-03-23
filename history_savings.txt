@@ -1,2 +1,11 @@
-outcomeSaving|67000.00
 incomeSaving|50000.00
+incomeSaving|50000.00
+incomeSaving|50000.00
+incomeSaving|50000.00
+incomeSaving|50000.00
+incomeSaving|50000.00
+incomeSaving|25000.00
+outcomeSaving|300000.00
+incomeSaving|50000.00
+outcomeSaving|50000.00
+incomeSaving|25000.00

@@ -13,16 +13,21 @@ def bacasaving():
         print("Error membuka file savings.txt")
         return -1.0
 
-#tampil sisa tabungan
-def printSisaSaving(saving):
-    print(f"Sisa tabungan Anda adalah: {saving:.2f}")
+# Tampilkan sisa tabungan 
+def printSisaSaving():
+    saving = updatesaving()  # Memperbarui tabungan dan mendapatkan nilai yang diperbarui
+    if saving is not None:  # Memeriksa apakah nilai tabungan berhasil diperbarui
+        print(f"Sisa tabungan Anda adalah: {saving:.2f}")
+    else:
+        print("Gagal membaca sisa tabungan.")
+    
 
-#update tabungan
+# Perbarui tabungan dan tampilkan sisa tabungan yang diperbarui
 def updatesaving():
     totTabungan = 0.0
     totPengeluaran = 0.0
     
-    #membaca dan menghitung pemasukan
+    # Membaca dan menghitung pemasukan
     try:
         with open("addsavings.txt", "r") as addTabungan:
             for line in addTabungan:
@@ -34,7 +39,7 @@ def updatesaving():
     except FileNotFoundError:
         print("Error membuka file addsavings.txt")
     
-    #membaca dan menghitung pengeluaran
+    # Membaca dan menghitung pengeluaran
     try:
         with open("subsavings.txt", "r") as outTabungan:
             for line in outTabungan:
@@ -46,24 +51,21 @@ def updatesaving():
     except FileNotFoundError:
         print("Error membuka file subsavings.txt")
     
-    #hitung saving
+    # Hitung sisa tabungan
     saving = totTabungan - totPengeluaran
     
-    #simpan ke savings.txt
+    # Simpan ke savings.txt
     try:
         with open("savings.txt", "w") as tabungan:
             tabungan.write(f"{saving:.2f}")
-            print("saving berhasil diupdate pada file savings.txt")
+            print ("saving berhasil diupdate pada file savings.txt")
             
-            #baca dan cetak sisa saving
-            sisasaving = bacasaving()
-            if sisasaving >= 0.0:
-                printSisaSaving(sisasaving)
-            else:
-                print("Gagal membaca sisa saving.")
+            # Kembalikan sisa tabungan yang diperbarui
+            return saving
     except FileNotFoundError:
         print("Error membuka file savings.txt")
-
+        return None  # Jika terjadi kesalahan, kembalikan None  
+    
 #tulis ke file
 def writeSavings(nmFile, tipe, jum):
     try:
@@ -90,6 +92,9 @@ def displaySavingsHistory():
 #menu pilihan saving
 def printMenuSavings():
     while True:
+
+        printSisaSaving()
+
         print("[ Savings ]")
         print("| 1. Add Savings Balance")
         print("| 2. Subtract Savings Balance")
