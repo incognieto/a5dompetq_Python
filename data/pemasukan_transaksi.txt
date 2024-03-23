@@ -2,3 +2,10 @@ pemasukan|200000.00|Uang Kaget|12-12-2003
 pemasukan|66666.00|Gaji|12-12-2018
 pemasukan|20000.00|Pinjaman|19-12-2019
 pemasukan|20000.00|Pinjaman|23-12-2008
+pemasukan|200000.00|Uang Kaget|12-12-2003
+pemasukan|100000.00|Uang Kaget|13-12-2003
+pemasukan|200000.00|Uang Kaget|14-12-2003
+pemasukan|200000.00|Uang Kaget|15-12-2003
+pemasukan|200000.00|Uang Kaget|16-12-2003
+pemasukan|200000.00|Uang Kaget|17-12-2003
+pemasukan|200000.00|Uang Kaget|18-12-2003

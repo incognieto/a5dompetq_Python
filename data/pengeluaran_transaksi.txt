@@ -1,1 +1,5 @@
 pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|6000.00|Hiburan|12-12-2003
+pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|150000.00|Hiburan|25-12-2005
+pengeluaran|7000.00|Hiburan|12-12-2003
