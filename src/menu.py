@@ -1,12 +1,20 @@
 import os
-from inoutcome import printMenuIncomeOutcome
-from history import printMenuHistory
-from recap import printMenuRecap
-from savings import printMenuSavings
-from export import printMenuExport
+from src import inoutcome, history, recap, savings, export, z_total
+
 from datetime import datetime
 
-def printHeader_b(username, balance):
+def getParameter_main():
+    with open("data/nowLogin.txt", "r") as file:
+        username_main = file.readline().strip()
+
+    # Read balance from wallet.txt
+    with open("data/wallet.txt", "r") as file:
+        balance_main = file.readline().strip()
+
+    return username_main, balance_main
+
+def printHeader_main():
+    username_main, balance_main = getParameter_main()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
     os.system("cls")
     print("+-----------------------------------------------------------------------------------+")
     print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
@@ -20,31 +28,16 @@ def printHeader_b(username, balance):
     print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
     print("|                                                                                   |")
     print("+-----------------------------------------------------------------------------------+")
-    print("| Hi, {:<10s} |  {:<30s}  | Wallet Balance : {:<10s} |".format(username, datetime.now().strftime('%A, %d %B %Y %I:%M %p'), balance))
+    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_main, balance_main, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
     print("+-----------------------------------------------------------------------------------+")
 
-#def printHeader_c(username):
-def printHeader_c():
-    #savings_balance = bacasaving()
-    os.system("cls")
-    print("+-----------------------------------------------------------------------------------+")
-    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
-    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
-    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
-    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
-    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
-    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
-    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
-    print("|                                                                                   |")
-    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
-    print("|                                                                                   |")
-    print("+-----------------------------------------------------------------------------------+")
-    #print("| Hi, {:<20s} | Savings Balance : {:<10.2f}  |".format(username, savings_balance))
-    print("+-----------------------------------------------------------------------------------+")
-
-def printMenu_b(username, balance):
+def printMenu_main():
     while True:
-        printHeader_b(username, balance)
+
+        z_total.cetak_wallet()
+        
+        printHeader_main()
+
         print("|                                                                                   |")
         print("|                            [1] Add Transaction                                    |")
         print("|                            [2] History                                            |")
@@ -61,15 +54,20 @@ def printMenu_b(username, balance):
         if option.isdigit():  # Memeriksa apakah input adalah digit
             option = int(option)
             if option == 1:
-                printMenuIncomeOutcome()
+                os.system("cls")
+                inoutcome.printMenuIncomeOutcome()
             elif option == 2:
-                printMenuHistory()
+                os.system("cls")
+                history.printMenuHistory()
             elif option == 3:
-                printMenuRecap()
+                os.system("cls")
+                recap.printMenuRecap()
             elif option == 4:
-                printMenuSavings()
+                os.system("cls")
+                savings.printMenuSavings()
             elif option == 5:
-                printMenuExport()
+                os.system("cls")
+                export.printMenuExport()
             elif option == 6:
                 print("About")
             elif option == 0:
@@ -80,7 +78,7 @@ def printMenu_b(username, balance):
         else:
             print("Invalid input! Please enter a number.")
 
-
+'''
 def main():
     # Read username from nowLogin.txt
     with open("data/nowLogin.txt", "r") as file:
@@ -94,3 +92,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''

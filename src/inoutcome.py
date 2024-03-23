@@ -8,9 +8,42 @@
     23/03/2024 : 04.40 WIB ["nito : digabungin ke template"]
     23/03/2024 : 05.10 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 11.48 WIB ["ratna : edit printMenuIncomeOutcome() dan update ke branch"]
+    23/03/2024 : 23.25 WIB ["ratna : edit Outcome() ngebaca wallet dan update ke branch"]
 '''
 
+from src import menu #ambil menu.py
+
+from src import z_total #ambil z_total.py
 import os
+from datetime import datetime
+
+def getParameter_transaction():
+    with open("data/nowLogin.txt", "r") as file:
+        username_transaction = file.readline().strip()
+
+    # Read balance from wallet.txt
+    with open("data/wallet.txt", "r") as file:
+        balance_transaction = file.readline().strip()
+
+    return username_transaction, balance_transaction
+
+def printHeader_transaction():
+    username_transaction, balance_transaction = getParameter_transaction()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
+    os.system("cls")
+    print("+-----------------------------------------------------------------------------------+")
+    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
+    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
+    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
+    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
+    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
+    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
+    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
+    print("|                                                                                   |")
+    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
+    print("|                                                                                   |")
+    print("+-----------------------------------------------------------------------------------+")
+    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_transaction, balance_transaction, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
+    print("+-----------------------------------------------------------------------------------+")
 
 #maybe Struct in Python??
 class Saldo:
@@ -21,19 +54,25 @@ class Saldo:
         self.pinjaman = 0
         self.uangKaget = 0
         self.inAll = 0
-        self.outAll = 0
         self.tanggal = ""
 
 #pengeluaran/outcome
 def Outcome(saldo, jum, kategori, tgl):
-    if saldo.inAll < jum:
-        print("Saldo tidak cukup! Silakan isi pemasukan terlebih dahulu.")
+    # Membaca saldo dari file wallet
+    with open("data/wallet.txt", "r") as file:
+        wallet_balance = float(file.readline().strip())
+        
+    if wallet_balance < jum:
+        print("Saldo tidak mencukupi! Silakan isi pemasukan terlebih dahulu.")
     else:
-        saldo.outAll += jum
         print(f"\nRiwayat pada {tgl}")
         print(f"Pengeluaran untuk {kategori}: Rp{jum}")
-        saldo.inAll -= jum
-        print(f"Sisa saldo: Rp{saldo.inAll}")
+        new_wallet_balance = wallet_balance - jum  # Menghitung sisa saldo baru setelah pengeluaran
+        print(f"Sisa saldo: Rp{new_wallet_balance}")
+        
+        # Memperbarui saldo dalam file wallet setelah pengeluaran
+        with open("data/wallet.txt", "w") as file:
+            file.write(str(new_wallet_balance))
 
 #operasi catat ke file
 def catat_pemasukan(saldo, jenis):
@@ -53,8 +92,7 @@ def catat_transaksi(saldo, jenis, jumlah, kategori=None):
 
 # ______________________Income Modul______________________________
 def incomeModul(saldo):
-    print("+-----------------------------------------------------------------------------------+")
-    saldo.tanggal = input("\nMasukkan tangal (DD-MM-YYYY): ")
+    saldo.tanggal = input("\n[ Income ] Masukkan tangal (DD-MM-YYYY): ")
     print("\n[ Jenis Pemasukan ]")
     print("|___ [1] Gaji")
     print("|___ [2] Bonus")
@@ -83,16 +121,19 @@ def incomeModul(saldo):
             kategori = "Uang Kaget"
         
         saldo.inAll += jml
+
         print(f"(!) Pemasukan berhasil dicatat: Rp{jml}")
         catat_pemasukan(saldo, kategori)
         catat_transaksi(saldo, 'pemasukan', jml, kategori)
+
+        #printMenuIncomeOutcome()
+
     else:
         print("Pilihan tidak valid!")
 
 # ______________________Outcome Modul______________________________
 def outcomeModul(saldo):
-    print("+-----------------------------------------------------------------------------------+")
-    saldo.tanggal = input("\nMasukkan tanggal (DD-MM-YYYY): ")
+    saldo.tanggal = input("\n[ Outcome ] Masukkan tanggal (DD-MM-YYYY): ")
     print("\n[ Jenis Pengeluaran ]")
     print("|___ [1] Belanja")
     print("|___ [2] Hiburan")
@@ -118,6 +159,9 @@ def outcomeModul(saldo):
         Outcome(saldo, jml, kategori, saldo.tanggal)
         catat_pengeluaran(saldo, jml, kategori)
         catat_transaksi(saldo, 'pengeluaran', jml, kategori)
+
+        #printMenuIncomeOutcome()
+    
     else:
         print("Pilihan tidak valid!")
 
@@ -125,7 +169,8 @@ def printMenuIncomeOutcome():
     saldo = Saldo()
     
     while True:
-        print("+-----------------------------------------------------------------------------------+")
+        z_total.cetak_wallet()
+        printHeader_transaction()
         print("| [1] Income                                                                        |")
         print("| [2] Outcome                                                                       |")
         print("| [0] Back                                                                          |")
@@ -140,8 +185,8 @@ def printMenuIncomeOutcome():
             elif optionInoutcome == 2:
                 outcomeModul(saldo)  # Memanggil fungsi outcomeModul dengan objek saldo sebagai argumen
             elif optionInoutcome == 0:
-                print("Exit and Sign Out")
-                return "back"  # Mengembalikan string 'back' agar menu utama diaktifkan kembali
+                menu.printMenu_main()
+                break
             else:
                 print("Invalid optionInoutcome! Please try again.")
         else:

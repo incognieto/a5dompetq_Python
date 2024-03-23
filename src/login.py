@@ -1,5 +1,5 @@
 import os
-from menu import printMenu_b
+from src import menu
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():
@@ -25,9 +25,9 @@ def printHeader_a():
     print("|                                                                                   |")
     print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
     print("|                                                                                   |")
-    print("|                                    [1] Login                                      |")
-    print("|                                    [2] Register                                   |")
-    print("|                                    [0] Exit                                       |")
+    print("|                                 [1] Login                                         |")
+    print("|                                 [2] Register                                      |")
+    print("|                                 [0] Exit                                          |")
     print("|                                                                                   |")
     print("+-----------------------------------------------------------------------------------+")
 
@@ -64,13 +64,12 @@ def tampilLogin():
         if key == "1":
             username, balance = loginUser()
             if username is not None:
-                printMenu_b(username, balance)  # Memanggil menu utama jika login berhasil
+                menu.printMenu_main()  # Memanggil menu utama jika login berhasil
         elif key == "2":
             registerUser()
         elif key == "0":
             print("Goodbye ...")
             break
-
 
 def registerUser():
     print("\n[Register] Username: ", end="")
