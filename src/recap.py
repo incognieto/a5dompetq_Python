@@ -9,39 +9,38 @@
     23/03/2024 : 09.45 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 09.55 WIB ["nito : hapus program write karena mengubah data wallet"]
 '''
+import menu
+import z_total #ambil z_total.py
+import os
+from datetime import datetime
 
-def printMenuRecap():
+def getParameter_recap():
+    with open("data/nowLogin.txt", "r") as file:
+        username_recap = file.readline().strip()
 
+    # Read balance from wallet.txt
+    with open("data/wallet.txt", "r") as file:
+        balance_recap = file.readline().strip()
+
+    return username_recap, balance_recap
+
+def printHeader_recap():
+    username_recap, balance_recap = getParameter_recap()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
+    os.system("cls")
     print("+-----------------------------------------------------------------------------------+")
-    print("| [1] Day                                                                           |")
-    print("| [2] Week                                                                          |")
-    print("| [3] Month                                                                         |")
-    print("| [0] Back                                                                          |")
+    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
+    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
+    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
+    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
+    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
+    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
+    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
+    print("|                                                                                   |")
+    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
+    print("|                                                                                   |")
     print("+-----------------------------------------------------------------------------------+")
-
-    while True:
-        optionRecap = input("[ Recap ] Choose an option: ")
-
-        if optionRecap.isdigit():  # Memeriksa apakah input adalah digit
-            optionRecap = int(optionRecap)
-            if optionRecap == 1:
-                tanggal = input("\n[ Daily ] Masukkan Tanggal (DD-MM-YYYY): ")
-                update_saldo_harian(tanggal)
-            elif optionRecap == 2:
-                tgl_awal = input("\n[ Weekly ] Masukkan Tanggal Awal (DD-MM-YYYY): ")
-                tgl_akhir = input("[ Weekly ] Masukkan Tanggal Akhir (DD-MM-YYYY): ")
-                update_saldo_mingguan(tgl_awal, tgl_akhir)
-            elif optionRecap == 3:
-                bulan = input("\n[ Monthly ] Masukkan Bulan (MM): ")
-                tahun = input("[ Monthly ] Masukkan Tahun (YYYY): ")
-                update_saldo_bulanan(bulan, tahun)
-            elif optionRecap == 0:
-                print("Exit and Sign Out")
-                return "back"  # Kembali ke menu utama
-            else:
-                print("Invalid optionRecap! Please try again.")
-        else:
-            print("Invalid input! Please enter a number.")
+    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_recap, balance_recap, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
+    print("+-----------------------------------------------------------------------------------+")
     
 def update_saldo_harian(tanggal):
     total_pemasukan = 0.0
@@ -141,6 +140,52 @@ def update_saldo_bulanan(bulan, tahun):
     print("|__ Sisa Saldo      :", saldo)
 
     return total_pemasukan, total_pengeluaran
+
+def printMenuRecap():
+
+    while True:
+
+        z_total.cetak_wallet()
+
+        printHeader_recap()
+
+        print("| [1] Day                                                                           |")
+        print("| [2] Week                                                                          |")
+        print("| [3] Month                                                                         |")
+        print("| [0] Back                                                                          |")
+        print("+-----------------------------------------------------------------------------------+")
+        
+        optionRecap = input("[ Recap ] Choose an option: ")
+
+        if optionRecap.isdigit():  # Memeriksa apakah input adalah digit
+            optionRecap = int(optionRecap)
+            if optionRecap == 1:
+                tanggal = input("\n[ Daily ] Masukkan Tanggal (DD-MM-YYYY): ")
+                # Memanggil fungsi update_saldo_harian dan mencetak rekap harian
+                total_pemasukan, total_pengeluaran = update_saldo_harian(tanggal)
+                # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
+                input("Press Enter to continue...")
+            elif optionRecap == 2:
+                tgl_awal = input("\n[ Weekly ] Masukkan Tanggal Awal (DD-MM-YYYY): ")
+                tgl_akhir = input("[ Weekly ] Masukkan Tanggal Akhir (DD-MM-YYYY): ")
+                # Memanggil fungsi update_saldo_mingguan dan mencetak rekap mingguan
+                total_pemasukan, total_pengeluaran = update_saldo_mingguan(tgl_awal, tgl_akhir)
+                # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
+                input("Press Enter to continue...")
+            elif optionRecap == 3:
+                bulan = input("\n[ Monthly ] Masukkan Bulan (MM): ")
+                tahun = input("[ Monthly ] Masukkan Tahun (YYYY): ")
+                # Memanggil fungsi update_saldo_bulanan dan mencetak rekap bulanan
+                total_pemasukan, total_pengeluaran = update_saldo_bulanan(bulan, tahun)
+                # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
+                input("Press Enter to continue...")
+            elif optionRecap == 0:
+                menu.printMenu_main()
+                break
+            else:
+                print("Invalid option! Please try again.")
+        else:
+            print("Invalid input! Please enter a number.")
 
 '''
 def main():

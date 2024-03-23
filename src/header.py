@@ -1,18 +1,7 @@
 import os
 from datetime import datetime
 
-def getParameter():
-    with open("data/nowLogin.txt", "r") as file:
-        username = file.readline().strip()
-
-    # Read balance from wallet.txt
-    with open("data/wallet.txt", "r") as file:
-        balance = file.readline().strip()
-
-    return username, balance
-
-def printHeader_c():
-    username, balance = getParameter()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
+def printHeader_b(username, balance):
     os.system("cls")
     print("+-----------------------------------------------------------------------------------+")
     print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
@@ -28,6 +17,3 @@ def printHeader_c():
     print("+-----------------------------------------------------------------------------------+")
     print("| Hi, {:<10s} |  {:<30s}  | Wallet Balance : {:<10s} |".format(username, datetime.now().strftime('%A, %d %B %Y %I:%M %p'), balance))
     print("+-----------------------------------------------------------------------------------+")
-
-# Panggil fungsi printHeader_c() untuk menampilkan header
-printHeader_c()

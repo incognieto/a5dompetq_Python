@@ -1,5 +1,4 @@
-pengeluaran|150000.00|Hiburan|25-12-2005
-pengeluaran|6000.00|Hiburan|12-12-2003
-pengeluaran|150000.00|Hiburan|25-12-2005
-pengeluaran|150000.00|Hiburan|25-12-2005
-pengeluaran|7000.00|Hiburan|12-12-2003
+pengeluaran|6000.00|Hiburan|25-12-2005
+pengeluaran|140000.00|Hutang|25-12-2007
+pengeluaran|20000.00|Pendidikan|23-12-2008
+pengeluaran|240000.00|Investasi|28-07-1978
