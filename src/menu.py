@@ -7,6 +7,7 @@
     23/03/2024 : 13.00 WIB ["nito : update branch nya"]
     23/03/2024 : 15.00 WIB ["nito : solving"]
     24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -34,21 +35,27 @@ def printMenu_main():
             if option == 1:
                 os.system("cls")
                 inoutcome.printMenuIncomeOutcome()
+                break
             elif option == 2:
                 os.system("cls")
                 history.printMenuHistory()
+                break
             elif option == 3:
                 os.system("cls")
                 recap.printMenuRecap()
+                break
             elif option == 4:
                 os.system("cls")
                 savings.printMenuSavings()
+                break
             elif option == 5:
                 os.system("cls")
                 diagram.printMenuDiagram()
+                break
             elif option == 6:
                 os.system("cls")
                 rating.printMenuRating()
+                break
             elif option == 0:
                 print("Exit and Sign Out")
                 break  # Keluar dari loop utama dan program selesai

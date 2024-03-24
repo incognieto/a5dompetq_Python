@@ -7,6 +7,7 @@
     23/03/2024 : 19.00 WIB ["nito : update branch nya"]
     23/03/2024 : 19.00 WIB ["nito : solving"]
     24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -105,6 +106,7 @@ def printMenuHistory():
                 input("\n(!) Press Enter to continue...")
             elif optionHistory == 0:
                 menu.printMenu_main()
+                break
                 #print("Exit and Sign Out")
                 #return "back"  # Kembali ke menu utama
             else:

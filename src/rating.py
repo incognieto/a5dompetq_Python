@@ -6,6 +6,7 @@
     Notes:
     24/03/2024 : 03.00 WIB ["nito : make a menu rating"]
     24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -71,6 +72,7 @@ def printMenuRating():
         input("\n(!) Press Enter to continue...")
         menu.printMenu_main()
         os.system("cls")
+        break
 
 '''
 if __name__ == "__main__":

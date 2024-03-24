@@ -32,3 +32,4 @@ incomeSaving|20000.00
 incomeSaving|15000.00
 incomeSaving|45000.00
 incomeSaving|50000.00
+incomeSaving|12000.00

@@ -5,6 +5,7 @@
 
     Notes:
     23/03/2024 : 20.00 WIB ["nito : make a menu diagram"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -41,6 +42,7 @@ def printMenuDiagram():
                 break
             elif optionDiagram == 0:
                 menu.printMenu_main()
+                break
             else:
                 print("Invalid optionDiagram! Please try again.")
         else:

@@ -8,6 +8,7 @@
     23/03/2024 : 12.40 WIB ["nito : digabungin ke template"]
     23/03/2024 : 12.50 WIB ["nito : solve tidak ke implement menu"]
     24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -79,10 +80,14 @@ def updatesaving():
 #tambah tabungan
 def addSaving(jumlah):
     writeSaving("data/addsavings.txt", "incomeSaving", jumlah)
+    input("\n(!) Press ENTER to return to Savings Menu")
+    os.system("cls")
 
 #kurangi tabungan
 def subSaving(jumlah):
     writeSaving("data/subsavings.txt", "outcomeSaving", jumlah)
+    input("\n(!) Press ENTER to return to Savings Menu")
+    os.system("cls")
 
 #tulis ke file
 def writeSaving(nama_file, jenis, jumlah):
@@ -147,8 +152,10 @@ def printMenuSavings():
             tampilHistory()
             print("")
         elif pilihan == "0":
-            print("Exit and Sign Out")
-            return "back"  # Mengembalikan string 'back' agar menu utama diaktifkan kembali
+            menu.printMenu_main()
+            break
+            #print("Exit and Sign Out")
+            #return "back"  # Mengembalikan string 'back' agar menu utama diaktifkan kembali
         else:
             print("Pilihan tidak valid, silakan coba lagi.")
 
