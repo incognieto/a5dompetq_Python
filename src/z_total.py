@@ -80,13 +80,7 @@ tambah_transaksi('pemasukan', 5000000, 'Gaji', '01-12-2006')
 tambah_transaksi('pengeluaran', 500000, 'Makan', '23-12-2006')
 tambah_transaksi('pemasukan', 250000, 'Bonus', '15-12-2006')
 tambah_transaksi('pengeluaran', 125000, 'Transportasi', '12-12-2006')
-<<<<<<< HEAD
 
 cetak_wallet()
 cetak_savings()
 '''
-=======
-'''
-cetak_wallet()
-cetak_savings()
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49

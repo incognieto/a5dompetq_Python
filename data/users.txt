@@ -3,8 +3,4 @@ nieto 12345678
 Maula 23232003
 nietosalimmaula 0987654321
 testing 12345678
-<<<<<<< HEAD
 ratna 111
-=======
-rats 111
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49

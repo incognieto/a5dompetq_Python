@@ -16,7 +16,6 @@ pemasukan|50000.00|Gaji|12-12-2009
 pengeluaran|240000.00|Investasi|28-07-1978
 pemasukan|40000.00|Uang Kaget|23-09-2017
 pemasukan|70000.00|Pinjaman|25-08-2017
-<<<<<<< HEAD
 pemasukan|5000.00|Gaji|12-12-2006
 pemasukan|20000.00|Gaji|20000
 pengeluaran|50000.00|Belanja|24-03-2024
@@ -28,51 +27,3 @@ pemasukan|70000.00|Gaji|29-03-2017
 pengeluaran|20000.00|Hutang|28-09-2025
 pengeluaran|12500.00|Hiburan|24-12-1900
 pemasukan|2000.00|Uang Kaget|13-03-2017
-=======
-pemasukan|1000.00|Gaji|24-08-2019
-pemasukan|2222.00|Bonus|23-10-2910
-pemasukan|778.00|Sampingan|12-01-2019
-pengeluaran|25000.00|Hiburan|12-10-1010
-pengeluaran|5200.00|Belanja|29-10-3526
-pengeluaran|20100.00|Kesehatan|25-05-2025
-pengeluaran|71000.00|Hiburan|11-11-1111
-pemasukan|2300.00|Bonus|22-02-2222
-pengeluaran|5000.00|Hiburan|30-03-3333
-pemasukan|12000.00|Gaji|12000
-pemasukan|5500.00|Gaji|14-04-2029
-pemasukan|3400.00|Uang Kaget|23-05-1765
-pemasukan|100.00|Gaji|100
-pemasukan|1000.00|Gaji|01-01-0001
-pemasukan|3000.00|Sampingan|30-12-1230
-pemasukan|5000.00|Pinjaman|15-05-2025
-pemasukan|20000.00|Sampingan|22-02-2222
-pengeluaran|13200.00|Minuman|16-07-2248
-pemasukan|2500.00|Uang Kaget|13-09-9999
-pemasukan|700.00|Pinjaman|22-12-1235
-pengeluaran|500.00|Investasi|23-11-2345
-pemasukan|500.00|Gaji|11-11-1111
-pengeluaran|23000.00|Belanja|12-12-1212
-pemasukan|3000.00|Sampingan|09-11-2045
-pengeluaran|15000.00|Hutang|29-02-2016
-pengeluaran|3000.00|Hiburan|17-07-1945
-pemasukan|6000.00|Uang Kaget|14-03-2014
-pengeluaran|5000.00|Kesehatan|20-01-1878
-pemasukan|5000.00|Bonus|18-04-2018
-pemasukan|12500.00|Pinjaman|15-05-2525
-pengeluaran|6700.00|Makanan|28-06-2018
-pengeluaran|6000.00|Belanja|29-03-1867
-pemasukan|5000.00|Gaji|01-06-1990
-pengeluaran|20000.00|Pakaian|30-08-2079
-pemasukan|5000.00|Pinjaman|19-08-2016
-pengeluaran|200.00|Pakaian|22-02-2015
-pengeluaran|3000.00|Hiburan|13-02-2134
-pemasukan|6100.00|Pinjaman|15-10-2121
-pengeluaran|4200.00|Minuman|24-09-1787
-pemasukan|6000.00|Gaji|06-06-2006
-pengeluaran|6000.00|Transportasi|19-07-0300
-pemasukan|12000.00|Gaji|12000
-pemasukan|4000.00|Gaji|12-10-1201
-pengeluaran|10000.00|Hiburan|13-12-1020
-pengeluaran|10000.00|Pajak|29-05-0689
-pemasukan|12000.00|Sampingan|14-06-5259
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49

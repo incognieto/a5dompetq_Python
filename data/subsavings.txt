@@ -4,11 +4,7 @@ outcomeSaving|40000.00
 outcomeSaving|182000.00
 outcomeSaving|460000.00
 outcomeSaving|30000.00
-<<<<<<< HEAD
 outcomeSaving|50000.00
 outcomeSaving|30000.00
 outcomeSaving|70000.00
 outcomeSaving|7000.00
-=======
-outcomeSaving|20000.00
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49

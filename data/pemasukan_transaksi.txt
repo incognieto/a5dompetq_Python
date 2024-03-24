@@ -8,11 +8,7 @@ pemasukan|2000.00|Uang Kaget|14-12-2003
 pemasukan|2000.00|Uang Kaget|15-12-2003
 pemasukan|2000.00|Uang Kaget|16-12-2003
 pemasukan|2000.00|Uang Kaget|17-12-2003
-<<<<<<< HEAD
 pemasukan|5000.00|Uang Kaget|18-12-2003
-=======
-pemasukan|5000.00|Uang Kaget|18-12-2003pemasukan|30000.00|Pinjaman|12-12-2003
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49
 pemasukan|30000.00|Uang Kaget|12-12-2005
 pemasukan|30000.00|Uang Kaget|12-12-2003
 pemasukan|50000.00|Pinjaman|12-12-2007
@@ -22,37 +18,8 @@ pemasukan|50000.00|Gaji|50000
 pemasukan|50000.00|Gaji|12-12-2009
 pemasukan|40000.00|Uang Kaget|23-09-2017
 pemasukan|70000.00|Pinjaman|25-08-2017
-<<<<<<< HEAD
 pemasukan|5000.00|Gaji|12-12-2006
 pemasukan|20000.00|Gaji|20000
 pemasukan|70000.00|Uang Kaget|27-05-2014
 pemasukan|70000.00|Gaji|29-03-2017
 pemasukan|2000.00|Uang Kaget|13-03-2017
-=======
-pemasukan|1000.00|Gaji|24-08-2019
-pemasukan|2222.00|Bonus|23-10-2910
-pemasukan|778.00|Sampingan|12-01-2019
-pemasukan|2300.00|Bonus|22-02-2222
-pemasukan|12000.00|Gaji|12000
-pemasukan|5500.00|Gaji|14-04-2029
-pemasukan|3400.00|Uang Kaget|23-05-1765
-pemasukan|100.00|Gaji|100
-pemasukan|1000.00|Gaji|01-01-0001
-pemasukan|3000.00|Sampingan|30-12-1230
-pemasukan|5000.00|Pinjaman|15-05-2025
-pemasukan|20000.00|Sampingan|22-02-2222
-pemasukan|2500.00|Uang Kaget|13-09-9999
-pemasukan|700.00|Pinjaman|22-12-1235
-pemasukan|500.00|Gaji|11-11-1111
-pemasukan|3000.00|Sampingan|09-11-2045
-pemasukan|2000.00|Uang Kaget|14-03-2014
-pemasukan|-1000.00|Bonus|18-04-2018
-pemasukan|12500.00|Pinjaman|15-05-2525
-pemasukan|17500.00|Gaji|01-06-1990
-pemasukan|5000.00|Pinjaman|19-08-2016
-pemasukan|6100.00|Pinjaman|15-10-2121
-pemasukan|6000.00|Gaji|06-06-2006
-pemasukan|12000.00|Gaji|12000
-pemasukan|4000.00|Gaji|12-10-1201
-pemasukan|12000.00|Sampingan|14-06-5259
->>>>>>> c153946038cc5e8840ac745c25958748a2c28b49
