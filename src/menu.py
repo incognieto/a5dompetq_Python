@@ -27,7 +27,7 @@ def printMenu_main():
 
         shape.mainMenu()
 
-        option = input("[ Menu ] Choose an option: ")
+        option = input("\033[93m" + "[ Menu ]" + "\033[0m" + " Choose an option: ")
 
         if option.isdigit():  # Memeriksa apakah input adalah digit
             option = int(option)

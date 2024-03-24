@@ -29,9 +29,9 @@ def addToNowLogin(username):
         file.write(username + "\n")
 
 def loginUser():
-    print("\n[Login] Username: ", end="")
+    print("\033[93m" + "\n[Login]" + "\033[0m" + " Username: ", end="")
     username = input().strip()
-    print("[Login] Password: ", end="")
+    print("\033[93m" + "[Login]" + "\033[0m" + " Password: ", end="")
     password = input().strip()
     if not isUserExist(username):
         print("User tidak ditemukan, segera lakukan registrasi.")
@@ -58,7 +58,7 @@ def tampilLogin():
         
         shape.headerLogin()
 
-        key = input("[dompetQ] Input your option: ").strip()
+        key = input("\033[93m" + "[dompetQ]" + "\033[0m" + " Input your option: ").strip()
 
         if key == "1":
             username, balance = loginUser()
@@ -71,13 +71,13 @@ def tampilLogin():
             break
 
 def registerUser():
-    print("\n[Register] Username: ", end="")
+    print("\033[93m" + "\n[Register]" + "\033[0m" + " Username: ", end="")
     username = input().strip()
     if isUserExist(username):
         print("Registrasi Gagal. Username telah digunakan.")
         input()
         return
-    print("[Register] Password: ", end="")
+    print("\033[93m" + "[Register]" + "\033[0m" + " Password: ", end="")
     password = input().strip()
     with open("data/users.txt", "a") as file:
         file.write(username + " " + password + "\n")

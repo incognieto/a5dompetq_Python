@@ -88,7 +88,7 @@ def printMenuHistory():
         
         shape.menuHistory()
 
-        optionHistory = input("Choose an optionHistory: ")
+        optionHistory = input("\033[96m" + "[ History ]" + "\033[0m" + " Choose an option: ")
 
         if optionHistory.isdigit():  # Memeriksa apakah input adalah digit
             optionHistory = int(optionHistory)

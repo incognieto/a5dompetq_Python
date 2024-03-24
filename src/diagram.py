@@ -27,16 +27,18 @@ def printMenuDiagram():
 
         shape.menuDiagram()
 
-        optionDiagram = input("[ Diagram ] Choose an option: ")
+        optionDiagram = input("\033[93m" + "[ Diagram ]" + "\033[0m" + "Choose an option: ")
 
         if optionDiagram.isdigit():  # Memeriksa apakah input adalah digit
             optionDiagram = int(optionDiagram)
             if optionDiagram == 1:
                 #print("Accessed: Satu")
                 z_frekuensi_transaksi.main()
+                break
             elif optionDiagram == 2:
                 #print("Accessed: Dua")
                 z_frekuensi_type.main()
+                break
             elif optionDiagram == 0:
                 menu.printMenu_main()
             else:
@@ -45,6 +47,7 @@ def printMenuDiagram():
             print("Invalid input! Please enter a number.")
             
         input("\n(!) Press Enter to continue...")
+        
         os.system("cls")
         
 '''

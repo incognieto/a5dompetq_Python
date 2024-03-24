@@ -129,26 +129,26 @@ def printMenuRecap():
 
         shape.menuRecap()
         
-        optionRecap = input("[ Recap ] Choose an option: ")
+        optionRecap = input("\033[93m" + "[ Recap ]" + "\033[0m" + " Choose an option: ")
 
         if optionRecap.isdigit():  # Memeriksa apakah input adalah digit
             optionRecap = int(optionRecap)
             if optionRecap == 1:
-                tanggal = input("\n[ Daily ] Masukkan Tanggal (DD-MM-YYYY): ")
+                tanggal = input("\033[93m" + "\n[ Daily ]" + "\033[0m" + " Masukkan Tanggal (DD-MM-YYYY): ")
                 # Memanggil fungsi update_saldo_harian dan mencetak rekap harian
                 total_pemasukan, total_pengeluaran = update_saldo_harian(tanggal)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
                 input("\n(!) Press Enter to continue...")
             elif optionRecap == 2:
-                tgl_awal = input("\n[ Weekly ] Masukkan Tanggal Awal (DD-MM-YYYY): ")
-                tgl_akhir = input("[ Weekly ] Masukkan Tanggal Akhir (DD-MM-YYYY): ")
+                tgl_awal = input("\033[93m" + "\n[ Weekly ]" + "\033[0m" + " Masukkan Tanggal Awal (DD-MM-YYYY): ")
+                tgl_akhir = input("\033[93m" + "[ Weekly ]" + "\033[0m" + " Masukkan Tanggal Akhir (DD-MM-YYYY): ")
                 # Memanggil fungsi update_saldo_mingguan dan mencetak rekap mingguan
                 total_pemasukan, total_pengeluaran = update_saldo_mingguan(tgl_awal, tgl_akhir)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
                 input("\n(!) Press Enter to continue...")
             elif optionRecap == 3:
-                bulan = input("\n[ Monthly ] Masukkan Bulan (MM): ")
-                tahun = input("[ Monthly ] Masukkan Tahun (YYYY): ")
+                bulan = input("\033[93m" + "\n[ Monthly ]" + "\033[0m" + " Masukkan Bulan (MM): ")
+                tahun = input("\033[93m" + "[ Monthly ]" + "\033[0m" + " Masukkan Tahun (YYYY): ")
                 # Memanggil fungsi update_saldo_bulanan dan mencetak rekap bulanan
                 total_pemasukan, total_pengeluaran = update_saldo_bulanan(bulan, tahun)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER

@@ -128,21 +128,17 @@ def printMenuSavings():
         if saldo == -1.0:
             return
         
-        print("| [1] Add Savings Balance                                                           |")
-        print("| [2] Subtract Savings Balance                                                      |")
-        print("| [3] History Savings Balance                                                       |")
-        print("| [0] Back                                                                          |")
-        print("+-----------------------------------------------------------------------------------+")
+        shape.menuSav()
         
-        pilihan = input("[ Savings ] Choose an option: ")
+        pilihan = input("\033[93m" + "[ Savings ]" + "\033[0m" + " Choose an option: ")
 
         if pilihan == "1":
-            jumlah = float(input("\n[ Add Savings Balance ] Amount\t: Rp"))
+            jumlah = float(input("\033[93m" + "\n[ Add Savings Balance ]" + "\033[0m" + " Amount\t: Rp"))
             addSaving(jumlah)
             updatesaving()
             print("")
         elif pilihan == "2":
-            jumlah = float(input("\n[ Subtract Savings Balance ] Amount\t: Rp"))
+            jumlah = float(input("\033[93m" + "\n[ Subtract Savings Balance ]" + "\033[0m" + " Amount\t: Rp"))
             subSaving(jumlah)
             updatesaving()
             print("")

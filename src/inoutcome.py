@@ -61,7 +61,7 @@ def catat_transaksi(saldo, jenis, jumlah, kategori=None):
 
 # ______________________Income Modul______________________________
 def incomeModul(saldo):
-    saldo.tanggal = input("\n[ Income ] Masukkan tangal (DD-MM-YYYY): ")
+    saldo.tanggal = input("\033[93m" + "\n[ Income ]" + "\033[0m" + " Masukkan tangal (DD-MM-YYYY): ")
     print("\n[ Jenis Pemasukan ]")
     print("|___ [1] Gaji")
     print("|___ [2] Bonus")
@@ -69,10 +69,10 @@ def incomeModul(saldo):
     print("|___ [4] Pinjaman")
     print("|___ [5] Uang Kaget")
     
-    pilJenis = int(input("\n[ Jenis Pemasukan ] Masukkan Pilihan: "))
+    pilJenis = int(input("\033[93m" + "\n[ Income Type ]" + "\033[0m" + " Masukkan Pilihan: "))
     
     if pilJenis in range(1, 6):
-        jml = int(input(f"\n[ Jenis Pemasukan ] Amount: Rp"))
+        jml = int(input("\033[93m" + f"\n[ Income Type ]" + "\033[om" + " Amount: Rp"))
         if pilJenis == 1:
             saldo.gaji += jml
             kategori = "Gaji"
@@ -102,7 +102,7 @@ def incomeModul(saldo):
 
 # ______________________Outcome Modul______________________________
 def outcomeModul(saldo):
-    saldo.tanggal = input("\n[ Outcome ] Masukkan tanggal (DD-MM-YYYY): ")
+    saldo.tanggal = input("\033[93m" + "\n[ Outcome ]" + "\033[0m" + " Masukkan tanggal (DD-MM-YYYY): ")
     print("\n[ Jenis Pengeluaran ]")
     print("|___ [1] Belanja")
     print("|___ [2] Hiburan")
@@ -116,10 +116,10 @@ def outcomeModul(saldo):
     print("|___ [10] Pendidikan")
     print("|___ [11] Hutang")
     print("|___ [12] Sedekah")
-    pilJenis = int(input("\n[ Jenis Pengeluaran ] Masukkan Pilihan: "))
+    pilJenis = int(input("\033[93m" + "\n[ Outcome Type ]" + "\033[0m" + " Masukkan Pilihan: "))
     
     if pilJenis in range(1, 13):
-        jml = int(input(f"\n[ Jenis Pengeluaran ] Amount: Rp"))
+        jml = int(input("\033[93m" + f"\n[ Outcome Type ]" + "\033[0m" + " Amount: Rp"))
         kategori = {
             1: "Belanja", 2: "Hiburan", 3: "Investasi", 4: "Kesehatan", 5: "Transportasi",
             6: "Makanan", 7: "Minuman", 8: "Pajak", 9: "Pakaian", 10: "Pendidikan",
@@ -145,7 +145,7 @@ def printMenuIncomeOutcome():
 
         shape.menuTransaction()
 
-        optionInoutcome = input("[ Transaction ] Choose an option: ")
+        optionInoutcome = input("\033[93m" + "[ Transaction ]" "\033[0m" " Choose an option: ")
 
         if optionInoutcome.isdigit():  # Memeriksa apakah input adalah digit
             optionInoutcome = int(optionInoutcome)

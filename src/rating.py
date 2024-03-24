@@ -52,7 +52,7 @@ def printMenuRating():
             level = "D"
 
         # Print informasi level dan kutipan yang sesuai
-        print("| (!) Rating untuk akun dompetQ mu adalah [{}]                                       |".format(level))
+        print("|" + "\033[95m" + " (!) Rating untuk akun dompetQ mu adalah [{}]".format(level) + "                                       " + '\033[0m' + "|")
         print("|                                                                                   |")
         if level == "A":
             shape.contentLevelA()
@@ -66,6 +66,7 @@ def printMenuRating():
         else: #__________________levelD
             shape.contentLevelD()
 
+        print("|                                                                                   |")
         print("+-----------------------------------------------------------------------------------+")
         input("\n(!) Press Enter to continue...")
         menu.printMenu_main()

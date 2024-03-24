@@ -4,3 +4,6 @@ outcomeSaving|40000.00
 outcomeSaving|182000.00
 outcomeSaving|460000.00
 outcomeSaving|30000.00
+outcomeSaving|50000.00
+outcomeSaving|30000.00
+outcomeSaving|70000.00
