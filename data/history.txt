@@ -27,3 +27,7 @@ pemasukan|70000.00|Gaji|29-03-2017
 pengeluaran|20000.00|Hutang|28-09-2025
 pemasukan|50000.00|Gaji|12-12-2008
 pengeluaran|50000.00|Investasi|24-03-2024
+pemasukan|50000.00|Uang Kaget|12-12-2004
+pengeluaran|75000.00|Hutang|07-07-2017
+pemasukan|25000.00|Gaji|12-12-2003
+pengeluaran|75000.00|Transportasi|12-12-2008

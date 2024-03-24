@@ -1,0 +1,31 @@
+pemasukan|200000.00|Uang Kaget|12-12-2003
+pengeluaran|150000.00|Hiburan|25-12-2005
+pemasukan|66666.00|Gaji|12-12-2018
+pemasukan|20000.00|Pinjaman|19-12-2019
+pemasukan|20000.00|Pinjaman|23-12-2008
+pemasukan|30000.00|Pinjaman|12-12-2003
+pemasukan|30000.00|Uang Kaget|12-12-2005
+pemasukan|30000.00|Uang Kaget|12-12-2003
+pemasukan|50000.00|Pinjaman|12-12-2007
+pemasukan|15000.00|Gaji|23-12-2007
+pengeluaran|140000.00|Hutang|25-12-2007
+pemasukan|170000.00|Uang Kaget|15-12-2003
+pengeluaran|20000.00|Pendidikan|23-12-2008
+pemasukan|50000.00|Gaji|50000
+pemasukan|50000.00|Gaji|12-12-2009
+pengeluaran|240000.00|Investasi|28-07-1978
+pemasukan|40000.00|Uang Kaget|23-09-2017
+pemasukan|70000.00|Pinjaman|25-08-2017
+pemasukan|5000.00|Gaji|12-12-2006
+pemasukan|20000.00|Gaji|20000
+pengeluaran|50000.00|Belanja|24-03-2024
+pengeluaran|70000.00|Belanja|12-12-2023
+pemasukan|70000.00|Uang Kaget|27-05-2014
+pengeluaran|45000.00|Transportasi|27-09-2015
+pengeluaran|5000.00|Transportasi|24-03-2024
+pemasukan|70000.00|Gaji|29-03-2017
+pengeluaran|20000.00|Hutang|28-09-2025
+pemasukan|50000.00|Gaji|12-12-2008
+pengeluaran|50000.00|Investasi|24-03-2024
+pemasukan|50000.00|Uang Kaget|12-12-2004
+pengeluaran|75000.00|Hutang|07-07-2017
