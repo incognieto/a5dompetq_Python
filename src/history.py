@@ -105,8 +105,7 @@ def printMenuHistory():
                 input("\n(!) Press Enter to continue...")
             elif optionHistory == 0:
                 menu.printMenu_main()
-                #print("Exit and Sign Out")
-                #return "back"  # Kembali ke menu utama
+                break
             else:
                 print("Invalid optionHistory! Please try again.")
         else:

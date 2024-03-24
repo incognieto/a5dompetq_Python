@@ -41,6 +41,7 @@ def printMenuDiagram():
                 break
             elif optionDiagram == 0:
                 menu.printMenu_main()
+                break
             else:
                 print("Invalid optionDiagram! Please try again.")
         else:

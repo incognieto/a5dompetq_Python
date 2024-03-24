@@ -69,8 +69,12 @@ def printMenuRating():
         print("|                                                                                   |")
         print("+-----------------------------------------------------------------------------------+")
         input("\n(!) Press Enter to continue...")
+        
         menu.printMenu_main()
-        os.system("cls")
+        
+        #os.system("cls")
+        
+        break
 
 '''
 if __name__ == "__main__":

@@ -9,6 +9,7 @@
     23/03/2024 : 05.10 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 11.48 WIB ["ratna : edit printMenuIncomeOutcome() dan update ke branch"]
     24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+    24/03/2024 : 13.00 WIB ["ratna : nambah break"]
 '''
 
 #________________getLocally
@@ -29,19 +30,25 @@ class Saldo:
         self.pinjaman = 0
         self.uangKaget = 0
         self.inAll = 0
-        self.outAll = 0
         self.tanggal = ""
 
 #pengeluaran/outcome
 def Outcome(saldo, jum, kategori, tgl):
-    if saldo.inAll < jum:
-        print("Saldo tidak cukup! Silakan isi pemasukan terlebih dahulu.")
+    # Membaca saldo dari file wallet
+    with open("data/wallet.txt", "r") as file:
+        dompet = float(file.readline().strip())
+        
+    if dompet < jum:
+        print("Saldo tidak mencukupi! Silakan isi pemasukan terlebih dahulu.")
     else:
-        saldo.outAll += jum
         print(f"\nRiwayat pada {tgl}")
         print(f"Pengeluaran untuk {kategori}: Rp{jum}")
-        saldo.inAll -= jum
-        print(f"Sisa saldo: Rp{saldo.inAll}")
+        newdompet = dompet - jum  # Menghitung sisa saldo baru setelah pengeluaran
+        print(f"Sisa saldo: Rp{newdompet}")
+        
+        # Memperbarui saldo dalam file wallet setelah pengeluaran
+        with open("data/wallet.txt", "w") as file:
+            file.write(str(newdompet))
 
 #operasi catat ke file
 def catat_pemasukan(saldo, jenis):
@@ -72,7 +79,7 @@ def incomeModul(saldo):
     pilJenis = int(input("\033[93m" + "\n[ Income Type ]" + "\033[0m" + " Masukkan Pilihan: "))
     
     if pilJenis in range(1, 6):
-        jml = int(input("\033[93m" + f"\n[ Income Type ]" + "\033[om" + " Amount: Rp"))
+        jml = int(input("\033[93m" + f"\n[ Income Type ]" + "\033[0m" + " Amount: Rp"))
         if pilJenis == 1:
             saldo.gaji += jml
             kategori = "Gaji"
@@ -95,7 +102,7 @@ def incomeModul(saldo):
         catat_pemasukan(saldo, kategori)
         catat_transaksi(saldo, 'pemasukan', jml, kategori)
 
-        printMenuIncomeOutcome()
+        #printMenuIncomeOutcome()
 
     else:
         print("Pilihan tidak valid!")
@@ -129,7 +136,7 @@ def outcomeModul(saldo):
         catat_pengeluaran(saldo, jml, kategori)
         catat_transaksi(saldo, 'pengeluaran', jml, kategori)
 
-        printMenuIncomeOutcome()
+        #printMenuIncomeOutcome()
     
     else:
         print("Pilihan tidak valid!")
@@ -155,12 +162,13 @@ def printMenuIncomeOutcome():
                 outcomeModul(saldo)  # Memanggil fungsi outcomeModul dengan objek saldo sebagai argumen
             elif optionInoutcome == 0:
                 menu.printMenu_main()
+                break
             else:
                 print("Invalid optionInoutcome! Please try again.")
         else:
             print("Invalid input! Please enter a number.")
             
-        input("(!) Press Enter to continue...")
+        input("\n(!) Press Enter to continue...")
         os.system("cls")
 
 '''
