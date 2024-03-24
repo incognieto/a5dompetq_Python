@@ -7,39 +7,18 @@
     22/03/2024 : 18.30 WIB ["naomi : update branch nya"]
     23/03/2024 : 12.40 WIB ["nito : digabungin ke template"]
     23/03/2024 : 12.50 WIB ["nito : solve tidak ke implement menu"]
+    24/03/2024 : 07.00 WIB ["nieto : oop edited"]
 '''
 
+#________________getLocally
+from src import menu
+from src import z_total #ambil z_total.py
+from src import shape
+
+#________________getEksternal
 import os
 from datetime import datetime
-
-def getParameter():
-    with open("data/nowLogin.txt", "r") as file:
-        username2 = file.readline().strip()
-
-    # Read balance from wallet.txt
-    with open("data/savings.txt", "r") as file:
-        balance2 = file.readline().strip()
-
-    return username2, balance2
-
-def printHeader_c():
-    username2, balance2 = getParameter()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
-    os.system("cls")
-    print("+-----------------------------------------------------------------------------------+")
-    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
-    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
-    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
-    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
-    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
-    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
-    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
-    print("|                                                                                   |")
-    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
-    print("|                                                                                   |")
-    print("+-----------------------------------------------------------------------------------+")
-    print("| Hi, {:<10s} | Savings Balance : {:<10s}|  {:<30s}  |".format(username2, balance2, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
-    print("+-----------------------------------------------------------------------------------+")
-
+    
 #baca file savings
 def bacasaving():
     try:
@@ -142,7 +121,7 @@ def tampilHistory():
 def printMenuSavings():
     while True:
         
-        printHeader_c()
+        shape.headerSavings()
 
         # Mendapatkan saldo tabungan
         saldo = bacasaving()

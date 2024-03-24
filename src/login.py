@@ -1,5 +1,21 @@
-import os
+'''
+    [🐺🐺🐺]
+    Edit. Nieto Salim Maula | 231524019
+    a5.d4.polban.proyek1
+
+    Notes:
+    22/03/2024 : 13.00 WIB ["nito : update branch nya"]
+    22/03/2024 : 15.00 WIB ["nito : solving"]
+    24/03/2024 : 07.00 WIB ["nieto : oop edited"]
+'''
+
+#________________getLocally
 from src import menu
+from src import shape
+
+#________________getEksternal
+import os
+from datetime import datetime
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():
@@ -11,25 +27,6 @@ def clearNowLogin():
 def addToNowLogin(username):
     with open("data/nowLogin.txt", "a") as file:
         file.write(username + "\n")
-
-def printHeader_a():
-    os.system("cls")
-    print("+-----------------------------------------------------------------------------------+")
-    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
-    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
-    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
-    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
-    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
-    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
-    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
-    print("|                                                                                   |")
-    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
-    print("|                                                                                   |")
-    print("|                                 [1] Login                                         |")
-    print("|                                 [2] Register                                      |")
-    print("|                                 [0] Exit                                          |")
-    print("|                                                                                   |")
-    print("+-----------------------------------------------------------------------------------+")
 
 def loginUser():
     print("\n[Login] Username: ", end="")
@@ -58,7 +55,9 @@ def loginUser():
 
 def tampilLogin():
     while True:
-        printHeader_a()
+        
+        shape.headerLogin()
+
         key = input("[dompetQ] Input your option: ").strip()
 
         if key == "1":

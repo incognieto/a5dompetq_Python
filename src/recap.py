@@ -8,40 +8,18 @@
     23/03/2024 : 09.45 WIB ["nito : digabungin ke template"]
     23/03/2024 : 09.45 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 09.55 WIB ["nito : hapus program write karena mengubah data wallet"]
+    24/03/2024 : 07.00 WIB ["nieto : oop edited"]
 '''
+
+#________________getLocally
 from src import menu
 from src import z_total #ambil z_total.py
+from src import shape
+
+#________________getEksternal
 import os
 from datetime import datetime
-
-def getParameter_recap():
-    with open("data/nowLogin.txt", "r") as file:
-        username_recap = file.readline().strip()
-
-    # Read balance from wallet.txt
-    with open("data/wallet.txt", "r") as file:
-        balance_recap = file.readline().strip()
-
-    return username_recap, balance_recap
-
-def printHeader_recap():
-    username_recap, balance_recap = getParameter_recap()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
-    os.system("cls")
-    print("+-----------------------------------------------------------------------------------+")
-    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
-    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
-    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
-    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
-    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
-    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
-    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
-    print("|                                                                                   |")
-    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
-    print("|                                                                                   |")
-    print("+-----------------------------------------------------------------------------------+")
-    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_recap, balance_recap, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
-    print("+-----------------------------------------------------------------------------------+")
-    
+       
 def update_saldo_harian(tanggal):
     total_pemasukan = 0.0
     total_pengeluaran = 0.0
@@ -134,7 +112,7 @@ def update_saldo_bulanan(bulan, tahun):
     
     # Print the monthly recap
     print("\n[ @Monthly Recap ]")
-    print("|__ Date            :", bulan, "-", tahun)
+    print("|__ Month - Year    :", bulan, "-", tahun)
     print("|__ Total Income    :", total_pemasukan)
     print("|__ Total Outcome   :", total_pengeluaran)
     print("|__ Sisa Saldo      :", saldo)
@@ -145,15 +123,11 @@ def printMenuRecap():
 
     while True:
 
-        z_total.cetak_wallet()
+        z_total.cetak_wallet() #update the wallet
+        
+        shape.headerWallet() #get a Header from shape.py
 
-        printHeader_recap()
-
-        print("| [1] Day                                                                           |")
-        print("| [2] Week                                                                          |")
-        print("| [3] Month                                                                         |")
-        print("| [0] Back                                                                          |")
-        print("+-----------------------------------------------------------------------------------+")
+        shape.menuRecap()
         
         optionRecap = input("[ Recap ] Choose an option: ")
 
@@ -164,28 +138,28 @@ def printMenuRecap():
                 # Memanggil fungsi update_saldo_harian dan mencetak rekap harian
                 total_pemasukan, total_pengeluaran = update_saldo_harian(tanggal)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
-                input("Press Enter to continue...")
+                input("\n(!) Press Enter to continue...")
             elif optionRecap == 2:
                 tgl_awal = input("\n[ Weekly ] Masukkan Tanggal Awal (DD-MM-YYYY): ")
                 tgl_akhir = input("[ Weekly ] Masukkan Tanggal Akhir (DD-MM-YYYY): ")
                 # Memanggil fungsi update_saldo_mingguan dan mencetak rekap mingguan
                 total_pemasukan, total_pengeluaran = update_saldo_mingguan(tgl_awal, tgl_akhir)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
-                input("Press Enter to continue...")
+                input("\n(!) Press Enter to continue...")
             elif optionRecap == 3:
                 bulan = input("\n[ Monthly ] Masukkan Bulan (MM): ")
                 tahun = input("[ Monthly ] Masukkan Tahun (YYYY): ")
                 # Memanggil fungsi update_saldo_bulanan dan mencetak rekap bulanan
                 total_pemasukan, total_pengeluaran = update_saldo_bulanan(bulan, tahun)
                 # Melanjutkan ke langkah berikutnya setelah pengguna menekan ENTER
-                input("Press Enter to continue...")
+                input("\n(!) Press Enter to continue...")
             elif optionRecap == 0:
                 menu.printMenu_main()
                 break
             else:
-                print("Invalid option! Please try again.")
+                print("(!) Invalid option! Please try again.")
         else:
-            print("Invalid input! Please enter a number.")
+            print("(!) Invalid input! Please enter a number.")
 
 '''
 def main():

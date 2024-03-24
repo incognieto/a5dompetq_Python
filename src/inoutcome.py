@@ -8,42 +8,18 @@
     23/03/2024 : 04.40 WIB ["nito : digabungin ke template"]
     23/03/2024 : 05.10 WIB ["nito : script program lebih di modular kan"]
     23/03/2024 : 11.48 WIB ["ratna : edit printMenuIncomeOutcome() dan update ke branch"]
+    24/03/2024 : 07.00 WIB ["nieto : oop edited"]
 '''
 
+#________________getLocally
 from src import menu #ambil menu.py
-
 from src import z_total #ambil z_total.py
+from src import shape
+
+#________________getEksternal
 import os
 from datetime import datetime
-
-def getParameter_transaction():
-    with open("data/nowLogin.txt", "r") as file:
-        username_transaction = file.readline().strip()
-
-    # Read balance from wallet.txt
-    with open("data/wallet.txt", "r") as file:
-        balance_transaction = file.readline().strip()
-
-    return username_transaction, balance_transaction
-
-def printHeader_transaction():
-    username_transaction, balance_transaction = getParameter_transaction()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
-    os.system("cls")
-    print("+-----------------------------------------------------------------------------------+")
-    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
-    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
-    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
-    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
-    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
-    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
-    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
-    print("|                                                                                   |")
-    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
-    print("|                                                                                   |")
-    print("+-----------------------------------------------------------------------------------+")
-    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_transaction, balance_transaction, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
-    print("+-----------------------------------------------------------------------------------+")
-
+    
 #maybe Struct in Python??
 class Saldo:
     def __init__(self):
@@ -159,18 +135,15 @@ def outcomeModul(saldo):
         print("Pilihan tidak valid!")
 
 def printMenuIncomeOutcome():
-    saldo = Saldo()
-    
     while True:
 
-        z_total.cetak_wallet()
+        saldo = Saldo()
 
-        printHeader_transaction()
+        z_total.cetak_wallet() #update the wallet
+        
+        shape.headerWallet() #get a Header from shape.py
 
-        print("| [1] Income                                                                        |")
-        print("| [2] Outcome                                                                       |")
-        print("| [0] Back                                                                          |")
-        print("+-----------------------------------------------------------------------------------+")
+        shape.menuTransaction()
 
         optionInoutcome = input("[ Transaction ] Choose an option: ")
 

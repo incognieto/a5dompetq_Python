@@ -1,156 +1,119 @@
+from src import menu #ambil menu.py
+
+from src import z_total #ambil z_total.py
 import os
-import curses
-import menu
+from datetime import datetime
 
-# Fungsi untuk membersihkan isi file nowLogin.txt
-def clearNowLogin():
-    with open("data/nowLogin.txt", "w"):
-        pass
+def getParameter_history():
+    with open("data/nowLogin.txt", "r") as file:
+        username_history = file.readline().strip()
 
-# Fungsi untuk menambahkan username ke dalam file nowLogin.txt
-def addToNowLogin(username):
-    with open("data/nowLogin.txt", "a") as file:
-        file.write(username + "\n")
+    # Read balance from wallet.txt
+    with open("data/wallet.txt", "r") as file:
+        balance_history = file.readline().strip()
 
-def printHeader_a(stdscr):
-    stdscr.clear()
-    stdscr.addstr(0, 0, "+----------------------------------------------------------+")
-    stdscr.addstr(1, 0, "|							   |")
-    stdscr.addstr(2, 0, "|							   |")
-    stdscr.addstr(3, 0, "|							   |")
-    stdscr.addstr(4, 0, "|	     _                            _   _____ 	   |")
-    stdscr.addstr(5, 0, "|	    | |                          | | |  _  |	   |")
-    stdscr.addstr(6, 0, "|	  __| | ___  _ __ ___  _ __   ___| |_| | | |	   |")
-    stdscr.addstr(7, 0, "|	 / _` |/ _ \| '_ ` _ \| '_ \ / _ \ __| | | |	   |")
-    stdscr.addstr(8, 0, "|	| (_| | (_) | | | | | | |_) |  __/ |_\\ \/ /	   |")
-    stdscr.addstr(9, 0, "|	 \__,_|\___/|_| |_| |_| .__/ \___|\__|\_/\\_\	   |")
-    stdscr.addstr(10, 0, "|	                      | |                   	   |")
-    stdscr.addstr(11, 0, "|	                      |_|                   	   |")
-    stdscr.addstr(12, 0, "|							   |")
-    stdscr.refresh()
+    return username_history, balance_history
 
-def printMenu_a(stdscr, selectedIndex):
-    stdscr.addstr(13, 0, "|	[%s] Login\t [%s] Register\t     [%s] Exit\t   |" % ("X" if selectedIndex == 1 else " ", "X" if selectedIndex == 2 else " ", "X" if selectedIndex == 3 else " "))
-    stdscr.addstr(14, 0, "|							   |")
-    stdscr.addstr(15, 0, "|							   |")
-    stdscr.addstr(16, 0, "+----------------------------------------------------------+")
-    stdscr.refresh()
+def printHeader_history():
+    username_history, balance_history = getParameter_history()  # Panggil fungsi getParameter() untuk mendapatkan username dan balance
+    os.system("cls")
+    print("+-----------------------------------------------------------------------------------+")
+    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
+    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
+    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
+    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
+    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
+    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
+    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
+    print("|                                                                                   |")
+    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
+    print("|                                                                                   |")
+    print("+-----------------------------------------------------------------------------------+")
+    print("| Hi, {:<10s} | Wallet Balance : {:<10s} |  {:<30s}  |".format(username_history, balance_history, datetime.now().strftime('%A, %d %B %Y %I:%M %p')))
+    print("+-----------------------------------------------------------------------------------+")
 
-# Fungsi untuk memeriksa apakah pengguna sudah terdaftar saat login
-def isUserExist(username):
-    with open("data/users.txt", "r") as file:
-        for line in file:
-            user_data = line.split()
-            if user_data[0] == username:
-                return True
-    return False
-
-# Fungsi untuk menulis satu username ke dalam file nowLogin.txt
-def writeNowLogin(username):
-    with open("data/nowLogin.txt", "w") as file:
-        file.write(username + "\n")
-
-# Fungsi untuk membaca username dari file nowLogin.txt
-def readNowLogin():
+def display_transaction_log():
     try:
-        with open("data/nowLogin.txt", "r") as file:
-            username = file.readline().strip()
-            return username
+        with open("data/history.txt", "r") as history_file:
+            for line in history_file:
+                print(line, end="")
+        print("----------------------[Transaction Log]---------------------")
     except FileNotFoundError:
-        return ""
+        print("Error opening file history.txt")
 
-# Fungsi untuk melakukan login pengguna
-def loginUser(stdscr):
-    curses.echo()
-    stdscr.addstr(17, 0, "Login | Username: ")
-    stdscr.refresh()
-    username = stdscr.getstr(18, 0).decode(encoding="utf-8")
-    stdscr.addstr(19, 0, "Login | Password: ")
-    stdscr.refresh()
-    password = stdscr.getstr(20, 0).decode(encoding="utf-8")
-    if not isUserExist(username):
-        stdscr.addstr(21, 0, "User tidak ditemukan, segera lakukan registrasi.")
-        stdscr.refresh()
-        stdscr.getch()
-        return
-    with open("data/users.txt", "r") as file:
-        for line in file:
-            temp_username, temp_password = line.split()
-            if username == temp_username and password == temp_password:
-                stdscr.addstr(21, 0, "Login berhasil.")
-                stdscr.refresh()
-                stdscr.getch()
-                writeNowLogin(username)
-                menu.main()  # Panggil fungsi main dari menu.py
-                return
-    stdscr.addstr(21, 0, "Username atau password salah.")
-    stdscr.refresh()
-    stdscr.getch()
-    os.remove("data/nowLogin.txt")
+def display_sorted_by_categories():
+    try:
+        with open("data/history.txt", "r") as history_file:
+            # Read all transactions into a list
+            transactions = [line.strip() for line in history_file]
 
-# Fungsi untuk logout, membersihkan nowLogin.txt
-def logoutUser():
-    clearNowLogin()
-    print("Logout berhasil.")
+        # Sort the transactions based on categories
+        transactions.sort(key=lambda x: x.split('|')[2])
 
-def tampilHome(username):
-    pass  # Fungsi ini dapat diimplementasikan sesuai kebutuhan
+        for transaction in transactions:
+            print(transaction)
 
-# Fungsi untuk menampilkan login
-def tampilLogin(stdscr):
-    selectedIndex = 1  # Pilihan menu awal
+        # Display the sorted transactions
+        print("--------------------[Sort By Categories]-------------------")
+    except FileNotFoundError:
+        print("Error opening file history.txt")
+
+def print_pengeluaran_contents():
+    try:
+        with open("data/pengeluaran_transaksi.txt", "r") as file:
+            print("\n--------------------[Outcome History]-------------------\n")
+            for line in file:
+                print(line, end="")
+    except FileNotFoundError:
+        print("Error opening file pengeluaran_transaksi.txt")
+
+def print_pemasukan_contents():
+    try:
+        with open("data/pemasukan_transaksi.txt", "r") as file:
+            print("\n--------------------[Income History]-------------------\n")
+            for line in file:
+                print(line, end="")
+    except FileNotFoundError:
+        print("Error opening file pemasukan_transaksi.txt")
+
+def printMenuHistory():
     while True:
-        printHeader_a(stdscr)
-        printMenu_a(stdscr, selectedIndex)
-        key = stdscr.getch()
+        optionHistory = input("Choose an optionHistory: ")
 
-        if key == curses.KEY_UP:
-            selectedIndex = (selectedIndex - 2 + 3) % 3 + 1
-        elif key == curses.KEY_DOWN:
-            selectedIndex = (selectedIndex % 3) + 1
-        elif key == curses.KEY_LEFT:
-            selectedIndex = (selectedIndex - 2 + 3) % 3 + 1
-        elif key == curses.KEY_RIGHT:
-            selectedIndex = (selectedIndex % 3) + 1
-        elif key == curses.KEY_ENTER or key in [10, 13]:
-            if selectedIndex == 1:
-                loginUser(stdscr)
-            elif selectedIndex == 2:
-                registerUser(stdscr)  # Meneruskan stdscr ke registerUser()
-            elif selectedIndex == 3:
-                logoutUser()  # Logout sebelum keluar program
-                stdscr.addstr(22, 0, "Good bye ...")
-                stdscr.refresh()
-                stdscr.getch()
-                break
+        z_total.cetak_wallet()
 
-# Fungsi untuk melakukan registrasi pengguna
-def registerUser(stdscr):  # Menambahkan stdscr sebagai parameter
-    curses.echo()
-    stdscr.addstr(17, 0, "Register | Username: ")
-    stdscr.refresh()
-    username = stdscr.getstr(18, 0).decode(encoding="utf-8")
-    if isUserExist(username):
-        stdscr.addstr(19, 0, "Registrasi Gagal. Username telah digunakan.")
-        stdscr.refresh()
-        stdscr.getch()
-        return
-    stdscr.addstr(19, 0, "Register | Password: ")
-    stdscr.refresh()
-    password = stdscr.getstr(20, 0).decode(encoding="utf-8")
-    with open("data/users.txt", "a") as file:
-        file.write(username + " " + password + "\n")
-    stdscr.addstr(21, 0, "Registrasi berhasil.")
-    stdscr.refresh()
-    stdscr.getch()
+        printHeader_history()
 
-# Fungsi utama untuk menjalankan aplikasi login
-def main(stdscr):
-    curses.curs_set(0)  # Sembunyikan kursor
-    tampilLogin(stdscr)  # Berikan stdscr ke tampilLogin()
+        print("| [1] by Log                                                                         |")
+        print("| [2] by Categories                                                                  |")
+        print("| [3] by Transaction type                                                            |")
+        print("| [0] Back                                                                           |")
+        print("+------------------------------------------------------------------------------------+")
 
-#Testing Main
+        if optionHistory.isdigit():  # Memeriksa apakah input adalah digit
+            optionHistory = int(optionHistory)
+            if optionHistory == 1:
+                printHeader_history()
+                display_transaction_log()  # Panggil fungsi untuk menampilkan log transaksi
+            elif optionHistory == 2:
+                printHeader_history()
+                display_sorted_by_categories()  # Panggil fungsi untuk menampilkan transaksi yang telah diurutkan berdasarkan kategori
+            elif optionHistory == 3:
+                # Panggil fungsi untuk menampilkan transaksi berdasarkan jenis transaksi
+                print_pemasukan_contents()
+                print_pengeluaran_contents()
+            elif optionHistory == 0:
+                menu.printMenu_main()
+                #print("Exit and Sign Out")
+                #return "back"  # Kembali ke menu utama
+            else:
+                print("Invalid optionHistory! Please try again.")
+        else:
+            print("Invalid input! Please enter a number.")
+
+def main():
+    printMenuHistory()
+
 if __name__ == "__main__":
-    curses.wrapper(main)
-
+    main()
 
