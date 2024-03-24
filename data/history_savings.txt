@@ -33,6 +33,7 @@ incomeSaving|3000.00
 outcomeSaving|460000.00
 incomeSaving|50000.00
 outcomeSaving|30000.00
+<<<<<<< HEAD
 incomeSaving|30000.00
 outcomeSaving|50000.00
 outcomeSaving|30000.00
@@ -43,3 +44,7 @@ incomeSaving|50000.00
 outcomeSaving|70000.00
 incomeSaving|12000.00
 outcomeSaving|7000.00
+=======
+incomeSaving|9000.00
+outcomeSaving|20000.00
+>>>>>>> c153946038cc5e8840ac745c25958748a2c28b49

@@ -15,7 +15,11 @@ from src import shape
 
 #________________getEksternal
 import os
+<<<<<<< HEAD
 from datetime import datetime
+=======
+from src import menu
+>>>>>>> c153946038cc5e8840ac745c25958748a2c28b49
 
 # Fungsi untuk membersihkan isi file nowLogin.txt
 def clearNowLogin():
@@ -28,6 +32,28 @@ def addToNowLogin(username):
     with open("data/nowLogin.txt", "a") as file:
         file.write(username + "\n")
 
+<<<<<<< HEAD
+=======
+def printHeader_a():
+    os.system("cls")
+    print("+-----------------------------------------------------------------------------------+")
+    print("|    ________     ______  ___      ___   _______   _______ ___________ ______       |")
+    print("|    |\"      \"\\   /    \" \\|\"  \\    /\"  | |   __ \"\\ /\"     \"(\"     _   \"/    \" \\     |")
+    print("|    (.  ___  :) // ____  \\\\   \\  //   | (. |__) :(: ______))__/  \\\\__// ____  \\    |")
+    print("|    |: \\   ) ||/  /    ) :/\\\\  \\/\\.    | |:  ____/ \\/    |     \\\\_ / /  /    ) )   |")
+    print("|    (| (___\\ |(: (____/ /|: \\.        | (|  /     // ___)_    |.  |(: (____/ //    |")
+    print("|    |:       :)\        /|.  \\    /:  |/|__/ \\   (:      \"|   \\:  | \\         \\    |")
+    print("|    (________/  \\\"_____/ |___|\\__/|___(_______)   \\_______)    \\__|  \"____/\\__\\    |")
+    print("|                                                                                   |")
+    print("|    Strategize, Organize, and Thrive: Your Financial Companion @a5polbanjtk        |")
+    print("|                                                                                   |")
+    print("|                                 [1] Login                                         |")
+    print("|                                 [2] Register                                      |")
+    print("|                                 [0] Exit                                          |")
+    print("|                                                                                   |")
+    print("+-----------------------------------------------------------------------------------+")
+
+>>>>>>> c153946038cc5e8840ac745c25958748a2c28b49
 def loginUser():
     print("\033[93m" + "\n[Login]" + "\033[0m" + " Username: ", end="")
     username = input().strip()
