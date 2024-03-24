@@ -22,3 +22,6 @@ pemasukan|5000.00|Gaji|12-12-2006
 pemasukan|20000.00|Gaji|20000
 pemasukan|70000.00|Uang Kaget|27-05-2014
 pemasukan|70000.00|Gaji|29-03-2017
+pemasukan|50000.00|Gaji|12-12-2008
+pemasukan|50000.00|Uang Kaget|12-12-2004
+pemasukan|25000.00|Gaji|12-12-2003
