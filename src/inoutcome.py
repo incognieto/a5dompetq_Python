@@ -79,7 +79,7 @@ def incomeModul(saldo):
     pilJenis = int(input("\033[93m" + "\n[ Income Type ]" + "\033[0m" + " Masukkan Pilihan: "))
     
     if pilJenis in range(1, 6):
-        jml = int(input("\033[93m" + f"\n[ Income Type ]" + "\033[om" + " Amount: Rp"))
+        jml = int(input("\033[93m" + f"\n[ Income Type ]" + "\033[0m" + " Amount: Rp"))
         if pilJenis == 1:
             saldo.gaji += jml
             kategori = "Gaji"
@@ -168,7 +168,7 @@ def printMenuIncomeOutcome():
         else:
             print("Invalid input! Please enter a number.")
             
-        input("(!) Press Enter to continue...")
+        input("\n(!) Press Enter to continue...")
         os.system("cls")
 
 '''

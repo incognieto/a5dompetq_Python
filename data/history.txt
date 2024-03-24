@@ -25,5 +25,5 @@ pengeluaran|45000.00|Transportasi|27-09-2015
 pengeluaran|5000.00|Transportasi|24-03-2024
 pemasukan|70000.00|Gaji|29-03-2017
 pengeluaran|20000.00|Hutang|28-09-2025
-pengeluaran|12500.00|Hiburan|24-12-1900
-pemasukan|2000.00|Uang Kaget|13-03-2017
+pemasukan|50000.00|Gaji|12-12-2008
+pengeluaran|50000.00|Investasi|24-03-2024

@@ -154,8 +154,8 @@ def printMenuSavings():
         elif pilihan == "0":
             menu.printMenu_main()
             break
-            #print("Exit and Sign Out")
-            #return "back"  # Mengembalikan string 'back' agar menu utama diaktifkan kembali
+            # print("Exit and Sign Out")
+            # break
         else:
             print("Pilihan tidak valid, silakan coba lagi.")
 
